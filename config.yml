@@ -1,0 +1,68 @@
+# Default UI is terminal UI (pseudographical)
+# You can write your own UI.
+general.ui: 'tui'
+# check - only check availability of items
+# check-and-buy - check and start buying the item
+# check-and-auto-buy - check and buy item in automated mode
+general.processing: check-and-buy
+# Enable logging curl request statistics.
+# Default - no. Use it while debugging.
+general.logs.statistic: yes
+general.logs.http_debug: no
+# Standard logging level.
+# I'm not sure it's helpfull.
+# Default: ERROR
+general.logs.level: ERROR
+
+notifyers.telegram.enabled: yes
+notifyers.telegram.token: 'SecreT%TokeN'
+notifyers.telegram.chat_id: 'chat_id'
+notifyers.telegram.item_eror_notify: yes
+
+# Enable smart antibot behavior in browser.
+# Do some random stuff while is not processing.
+# Timer for action is random (seconds) between
+# antibot.smart_browser_behavior.min_timer (default 60) and
+# antibot.smart_browser_behavior.mmax_timer (default 60*5)
+antibot.smart_browser_behavior.enabled: yes
+antibot.smart_browser_behavior.min_timer: 60
+antibot.smart_browser_behavior.max_timer: 300
+
+# Enable smart sleep feature in tracking threads.
+# We initialize a timer with random value (in seconds)
+# from antibot.smart_sleep.min_timer to antibot.smart_sleep.max_timer
+# When the time is over, tracking thread will sleep to random count miliseconds
+# from antibot.smart_sleep.min_time to antibot.smart_sleep.max_time
+# Defaults:
+# antibot.smart_sleep.enabled: yes
+# antibot.smart_sleep.min_timer: 60*15
+# antibot.smart_sleep.max_timer: 60*30
+# antibot.smart_sleep.min_time: 5000
+# antibot.smart_sleep.max_time: 10000
+antibot.smart_sleep.enabled: yes
+antibot.smart_sleep.min_timer: 900
+antibot.smart_sleep.max_timer: 1800
+antibot.smart_sleep.min_time: 8000
+antibot.smart_sleep.max_time: 10000
+
+# Use as many proxies as you can.
+# Internally we use proxies by curl to check items' availability.
+# If ip_address equals bypass string - we will use curl without proxy
+antibot.proxies:
+  - name: 1
+    ip_address: '192.168.0.1'
+    port: 1080
+  - name: 2
+    ip_address: '192.168.0.2'
+    port: 1080
+  - name: bypass proxy
+    ip_address: bypass
+    port: 0
+
+amazon.auth.user: name@email.com
+amazon.auth.password: Some$Pass
+
+amazon.items:
+  - name: test buy
+    url: 'https://www.amazon.com'
+    check_interval: 1500

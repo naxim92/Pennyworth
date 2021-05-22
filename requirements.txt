@@ -1,0 +1,8 @@
+pytest
+selenium
+pyyaml
+certifi
+bs4
+html5lib
+playsound
+requests

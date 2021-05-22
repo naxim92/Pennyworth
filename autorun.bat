@@ -1,0 +1,1 @@
+start /max %~dp0bot.py -c config_prod.yml
